@@ -1,0 +1,50 @@
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.app-title {
+    border-bottom: 2px solid #333;
+}
+
+#app ul {
+    list-style: none;
+    padding: 0;
+}
+
+.delete {
+    font-size: 12px;
+    color: #08c;
+    cursor: pointer;
+}
+
+.done {
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+.remaining {
+    color: #ccc;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.today {
+    font-size: 16px;
+    color: #696969;
+}
+
+#explanation {
+    display: none;
+}
+
+.caution {
+    color: #ff0;
+}
+
+.v-enter-active, .v-leave-active {
+    transition: opacity 1s;
+}
+.v-enter, .v-leave-to {
+    opacity: 0;
+}

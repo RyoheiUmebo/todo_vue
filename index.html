@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOS</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <h1 class="app-title">
+            {{title.toUpperCase()}}
+            <span class="remaining">{{remaining}}/{{todos.length}}</span>
+            <button v-on:click="allDelete">All Delete</button>
+            <button v-on:click="completedDelete">Completed Delete</button>
+            <span class="today">{{today.getFullYear()}}/{{today.getMonth()}}/{{today.getDate()}}</span>
+        </h1>
+        <ul>
+            <li v-for="(todo, index) in todos">
+                <input type="checkbox" v-model="todo.isDone">
+                <span v-bind:class="{done: todo.isDone}">{{ todo.title }}</span>
+                <span class="delete" v-on:click="deleteItem(index)">[x]</span>
+            </li>
+            <li v-if="!todos.length">Nothing, todos.</li>
+        </ul>
+        <form v-on:submit.prevent="addItem">
+            <input type="text" v-model="newItem" v-bind:placeholder="placeholder" v-bind:maxlength="MAX_LENGTH">
+            <input type="submit" value="Add">
+        </form>
+        
+        <div>
+            <button id="btn-explanation">How to use this application</button>
+        </div>
+        <div id="explanation">
+            <p>This application is management TODO.</p>
+            <ol>
+                <li>Please input task name.</li>
+                <li>If you finished task, click the checkbox.</li>
+                <li>You can delete multiple tasks from upside buttons.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
